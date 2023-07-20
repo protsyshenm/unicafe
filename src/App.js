@@ -49,21 +49,33 @@ const Statistics = ({ good, neutral, bad }) => {
   return (
     <div>
       <h1>statistics</h1>
-      <StatisticLine name='good' value={good} />
-      <StatisticLine name='neutral' value={neutral} />
-      <StatisticLine name='bad' value={bad} />
-      <StatisticLine name='all' value={all} />
-      <StatisticLine name='average' value={average} />
-      <StatisticLine name='positive' value={positive} />
+      <table>
+        <StatisticLine name='good' value={good} />
+        <StatisticLine name='neutral' value={neutral} />
+        <StatisticLine name='bad' value={bad} />
+        <StatisticLine name='all' value={all} />
+        <StatisticLine name='average' value={average} />
+        <StatisticLine name='positive' value={positive} />
+      </table>
     </div>
   )
 }
 
 const StatisticLine = ({ name, value }) => {
   if (name === 'positive') {
-    return <p>{name} {value} %</p>
+    return (
+      <tr>
+        <td>{name}</td>
+        <td>{value} %</td>
+      </tr>
+    )
   }
-  return <p>{name} {value}</p>
+  return (
+    <tr>
+      <td>{name}</td>
+      <td>{value}</td>
+    </tr>
+  )
 }
 
 export default App
